@@ -24,6 +24,7 @@ RUN rm /etc/nginx/sites-enabled/default
 
 # Add the nginx site and config
 ADD nginx.conf /etc/nginx/sites-enabled/webapp.conf
+ADD rails-env.conf /etc/nginx/main.d/rails-env.conf
 
 WORKDIR /home/app/webapp
 

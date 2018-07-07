@@ -32,6 +32,9 @@ curl -L ${DEB_DOWNLOAD_URL} -o libreoffice.tar.gz
 archive_name=$(tar tzf libreoffice.tar.gz | sed -e 's@/.*@@' | uniq)
 tar xzf libreoffice.tar.gz
 
+cd ${archive_name}/DEBS/
+dpkg -i *.deb
+
 cd ${archive_name}
 for f in DEBS/*.deb
 do

@@ -8,7 +8,7 @@ ENV RAILS_ENV=production
 COPY installopenoffice.sh /tmp/installopenoffice.sh
 
 # Install Libre Office
-RUN sh /tmp/installopenoffice.sh
+RUN sh /tmp/installopenoffice.sh && ln -s /opt/libreoffice5.4/program/soffice /usr/local/soffice
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]

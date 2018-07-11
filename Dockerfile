@@ -8,7 +8,9 @@ ENV RAILS_ENV=production
 COPY installopenoffice.sh /tmp/installopenoffice.sh
 
 # Install Libre Office
-RUN sh /tmp/installopenoffice.sh && ln -s /opt/libreoffice5.4/program/soffice /usr/local/soffice
+RUN sh /tmp/installopenoffice.sh
+
+RUN ln -s /opt/libreoffice5.4/program/soffice /bin/soffice
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -28,9 +30,9 @@ ADD rails-env.conf /etc/nginx/main.d/rails-env.conf
 
 WORKDIR /home/app/webapp
 
-VOLUME /home/app/webapp
+# VOLUME /home/app/webapp
 
-RUN chown -R app:app /home/app/webapp
+# RUN chown -R app:app /home/app/webapp
 
 # Clean up APT and bundler when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby23
+FROM phusion/passenger-ruby22
 
 RUN apt-get update && apt-get install libmagick++-dev unzip -y
 
